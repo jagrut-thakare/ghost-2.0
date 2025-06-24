@@ -1,6 +1,6 @@
 pytorch-lightning==2.5.0.post0
 matplotlib==3.10.0
-scikit-image==0.25.1
+scikit-image==0.21.0
 lpips==0.1.4
 imgaug==0.4.0
 pytorch-msssim==1.0.0
