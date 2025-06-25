@@ -47,7 +47,7 @@ class GazeLossRTGene(nn.Module):
         self.layer_indices = layer_indices
         self.weights = weights
 
-    @torch.cuda.amp.autocast(False)
+    @torch.amp.autocast('cuda', False)
     def forward(self,
                 inputs: Union[torch.Tensor, list],
                 target: torch.Tensor,
