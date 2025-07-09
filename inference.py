@@ -28,13 +28,12 @@ def main(args):
         cfg_b = OmegaConf.load(stream)
 
     aligner = AlignerModule(cfg_a)
-    ckpt = torch.load(args.ckpt_a, map_location='cpu')
-    aligner.load_state_dict(torch.load(args.ckpt_a), strict=False)
+    aligner.load_state_dict(torch.load(args.ckpt_a, map_location='cpu', weights_only=False), strict=False)
     aligner.eval()
     aligner.cuda()
 
     blender = BlenderModule(cfg_b)
-    blender.load_state_dict(torch.load(args.ckpt_b, map_location='cpu')["state_dict"], strict=False,)
+    blender.load_state_dict(torch.load(args.ckpt_b, map_location='cpu', weights_only=False)["state_dict"], strict=False)
     blender.eval()
     blender.cuda()
 

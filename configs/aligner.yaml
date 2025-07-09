@@ -1,6 +1,7 @@
-home_dir: '/home/jovyan/yaschenko/clean_headswap/'
+home_dir: '/home/jagrut.thakare/Project/ghost-2.0/aligner_checkpoints'
 experiment_name: 'test_run'
-num_gpus: 8
+# num_gpus: 8
+num_gpus: 1
 
 model: 
     embed:
@@ -31,7 +32,8 @@ model:
     segment: False
         
 train_options:
-    data_path: '/home/jovyan/yaschenko/dev_masks_parsings/train'
+    # data_path: '/home/jovyan/yaschenko/dev_masks_parsings/train'
+    data_path: '/home/jagrut.thakare/Project/ghost-2.0/src/data/train_h5'
     weights:
         w_rec: 30
         w_perc_vgg: 0.0001
@@ -53,21 +55,24 @@ train_options:
         beta2: 0.999
     
     ckpt_interval: 20
-    max_epochs: 1020
+    max_epochs: 10
     gaze_start: 1000
     log_interval: 250
     log_train_freq: 200
     batch_size: 10
-    samples_cnt: None
+    swap_mode: both
+    samples_cnt: null
     source_len: 1
     shuffle: True
-    num_workers: 40
+    num_workers: 2
 
         
 inference_options:
-    data_path: '/home/jovyan/yaschenko/dev_masks_parsings/test'
+    # data_path: '/home/jovyan/yaschenko/dev_masks_parsings/test'
+    data_path: '/home/jagrut.thakare/Project/ghost-2.0/src/data/test_h5'
     batch_size: 20
-    samples_cnt: None
+    samples_cnt: nulll
     source_len: 1
     shuffle: False
-    num_workers: 40
+    swap_mode: both
+    num_workers: 2
